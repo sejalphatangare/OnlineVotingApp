@@ -30,16 +30,16 @@ public class LoginActivity extends AppCompatActivity {
     private Button loginButton;
     private ProgressBar progressBar;
 
-    @Override
-    public void onStart(){
-        super.onStart();
-//        check if user is signed in (non-null) and the update UI accordingly.
-        FirebaseUser currentUser=auth.getCurrentUser();
-        if(currentUser!=null){
-            startActivity(new Intent(LoginActivity.this, MainActivity.class));
-            finish();
-        }
-    }
+//    @Override
+//    public void onStart(){
+//        super.onStart();
+////        check if user is signed in (non-null) and the update UI accordingly.
+//        FirebaseUser currentUser=auth.getCurrentUser();
+//        if(currentUser!=null && currentUser.isEmailVerified()){
+//            startActivity(new Intent(LoginActivity.this, RegisterUserProfile.class));
+//            finish();
+//        }
+//    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -67,7 +67,7 @@ public class LoginActivity extends AppCompatActivity {
                                     public void onSuccess(AuthResult authResult) {
                                         progressBar.setVisibility(View.GONE);
                                         Toast.makeText(LoginActivity.this, "Login Successful", Toast.LENGTH_SHORT).show();
-                                        startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                                        startActivity(new Intent(LoginActivity.this, RegisterUserProfile.class));
                                         finish();
                                     }
                                 }).addOnFailureListener(new OnFailureListener() {

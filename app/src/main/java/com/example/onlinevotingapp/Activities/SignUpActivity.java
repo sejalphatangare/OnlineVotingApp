@@ -31,23 +31,24 @@ public class SignUpActivity extends AppCompatActivity {
     private ProgressBar progressBar;
 
 
-    @Override
-    public void onStart(){
-        super.onStart();
-//        check if user is signed in (non-null) and the update UI accordingly.
-        FirebaseUser currentUser=auth.getCurrentUser();
-        if(currentUser!=null){
-            if(currentUser.isEmailVerified()) {
-                startActivity(new Intent(SignUpActivity.this, MainActivity.class));
-                finish();
-            }else{
-//                showEmailVerificationPrompt();
-            }
-        }else{
-//            Intent intent=new Intent(this,LoginActivity.class);
-//            startActivity(intent);
-        }
-    }
+//    @Override
+//    public void onStart(){
+//        super.onStart();
+////        check if user is signed in (non-null) and the update UI accordingly.
+//        FirebaseUser currentUser=auth.getCurrentUser();
+//        if(currentUser!=null){
+//            if(currentUser.isEmailVerified()) {
+//                startActivity(new Intent(SignUpActivity.this, MainActivity.class));
+//                finish();
+//            }else{
+////                showEmailVerificationPrompt();
+//
+//            }
+//        }else{
+////            Intent intent=new Intent(this,LoginActivity.class);
+////            startActivity(intent);
+//        }
+//    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

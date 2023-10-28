@@ -8,7 +8,9 @@ import android.os.Handler;
 import android.widget.TextView;
 
 import com.airbnb.lottie.LottieAnimationView;
+import com.example.onlinevotingapp.MainActivity;
 import com.example.onlinevotingapp.R;
+import com.example.onlinevotingapp.Utils.FirebaseUtil;
 
 public class SplashScreen extends AppCompatActivity {
     TextView appname;
@@ -20,12 +22,20 @@ public class SplashScreen extends AppCompatActivity {
         lottie=findViewById(R.id.lottie);
 
 
-        lottie.animate().translationX(3000).setDuration(2000).setStartDelay(2900);
+//        lottie.animate().translationX(3000).setDuration(2000).setStartDelay(2900);
 
-        new Handler().postDelayed(() -> {
-            Intent i=new Intent(getApplicationContext(), SignUpActivity.class);
-            startActivity(i);
-            finish();
-        },5000);
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                if(FirebaseUtil.isLoggedIn()){
+                    startActivity(new Intent(SplashScreen.this, MainActivity.class));
+                }else{
+                    Intent i=new Intent(getApplicationContext(), SignUpActivity.class);
+                    startActivity(i);
+
+                }
+                finish();
+            }
+        },3000);
     }
 }
